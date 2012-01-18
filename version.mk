@@ -2,8 +2,8 @@ ROLLNAME	= os
 RELEASE		= 0
 COLOR		= white
 OSNAME		= CentOS
-OSVERSION 	= 6.0
-UPDATESNAME	= Updates-$(OSNAME)-$(OSVERSION)
+OSVERSION 	= 6.2
+UPDATESNAME	= Updates-$(OSNAME)
 
 ROLLDIR		= $(shell rocks report distro)/rolls
 
