@@ -136,10 +136,22 @@ pretar:: graph.py
 	-mkdir -p graphs/default
 	./graph.py > graphs/default/os.xml
 	./yumconf.sh > yum.conf
-	-mkdir -p $(ROLLDIR)/CentOS/$(CENTOS_VERSION)/$(ARCH)/RedHat/base
-	cp $(ROLLDIR)/rocks+kernel/$(KERNEL_VERSION)/$(ARCH)/RedHat/base/comps.xml \
-		$(ROLLDIR)/CentOS/$(CENTOS_VERSION)/$(ARCH)/RedHat/base
+	-mkdir -p $(ROLLDIR)/CentOS/$(CENTOS_VERSION)/redhat/$(ARCH)/RedHat/base
+	cp $(ROLLDIR)/rocks+kernel/$(KERNEL_VERSION)/redhat/$(ARCH)/RedHat/base/comps.xml \
+		$(ROLLDIR)/CentOS/$(CENTOS_VERSION)/redhat/$(ARCH)/RedHat/base
+	-rocks add distribution rocks-dist-all
+	-rocks enable roll % dist=rocks-dist-all
+	-rocks add distribution rocks-dist-os
+	-rocks enable roll $(OSNAME) version=$(OSVERSION) dist=rocks-dist-os
+	-rocks enable roll $(UPDATESNAME) version=$(UPDATES_VERSION) \
+		dist=rocks-dist-os
 	
+cleanosdists:
+	-rocks disable roll % dist=rocks-dist-all
+	-rocks disable roll % dist=rocks-dist-os
+	-rocks remove distribution rocks-dist-all
+	-rocks remove distribution rocks-dist-os
+
 
 clean::
 	rm -f graphs/default/os.xml yum.conf yum.log

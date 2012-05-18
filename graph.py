@@ -120,7 +120,8 @@ class App(rocks.sql.Application):
 
 	def run(self):
 		self.connect()
-		self.execute('select node from appliances where node != ""')
+		self.execute("""select value from appliance_attributes where
+			attr = 'node' """)
 		
 		list = []
 		for node in self.fetchall():
