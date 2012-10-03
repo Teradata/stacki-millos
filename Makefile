@@ -159,4 +159,5 @@ clean::
 	rm -f _arch
 	rm -rf rocks-dist-all rocks-dist-os
 	rm -rf cache cachedir
+	rm -f *.iso
 
