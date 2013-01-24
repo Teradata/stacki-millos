@@ -128,17 +128,18 @@
 #
 #
 
-include $(ROLLSROOT)/etc/CCRolls.mk
+ROLLROOT = .
 
-default: roll
+include version.mk
+-include $(ROLLSBUILD)/etc/CCRolls.mk
 
 pretar:: graph.py
 	-mkdir -p graphs/default
 	./graph.py > graphs/default/os.xml
 	./yumconf.sh > yum.conf
-	-mkdir -p $(ROLLDIR)/CentOS/$(CENTOS_VERSION)/redhat/$(ARCH)/RedHat/base
-	cp $(ROLLDIR)/kernel/$(KERNEL_VERSION)/redhat/$(ARCH)/RedHat/base/comps.xml \
-		$(ROLLDIR)/CentOS/$(CENTOS_VERSION)/redhat/$(ARCH)/RedHat/base
+	-mkdir -p $(ROLLDIR)/CentOS/$(CENTOS_VERSION)/redhat/x86_64/RedHat/base
+	cp $(ROLLDIR)/cluster-core/$(CORE_VERSION)/redhat/x86_64/RedHat/base/comps.xml \
+		$(ROLLDIR)/CentOS/$(CENTOS_VERSION)/redhat/x86_64/RedHat/base
 	-rocks add distribution rocks-dist-all
 	-rocks enable roll % dist=rocks-dist-all
 	-rocks add distribution rocks-dist-os
@@ -152,12 +153,10 @@ cleanosdists:
 	-rocks remove distribution rocks-dist-all
 	-rocks remove distribution rocks-dist-os
 
-
 clean::
 	rm -f graphs/default/os.xml yum.conf yum.log
 	rm -f comps.xml comps.xml.orig
 	rm -f _arch
-	rm -rf rocks-dist-all rocks-dist-os
 	rm -rf cache cachedir
 	rm -f *.iso
 

@@ -1,5 +1,4 @@
-ROLLNAME	= os
-RELEASE		= 0
+ROLL		= os
 COLOR		= white
 OSNAME		= CentOS
 OSVERSION 	= 6.3
@@ -11,9 +10,7 @@ CENTOS_VERSION	= \
 	$(shell rocks list roll $(OSNAME) output-header=no output-col=version | tr -d ' ')
 UPDATES_VERSION	= \
 	$(shell rocks list roll $(UPDATESNAME) output-header=no output-col=version | tr -d ' ')
-KERNEL_VERSION	= \
-	$(shell rocks list roll kernel output-header=no output-col=version | tr -d ' ')
-
-REDHAT.ROOT	= $(PWD)
+CORE_VERSION	= \
+	$(shell rocks list roll cluster-core output-header=no output-col=version | tr -d ' ')
 
 ROLLS		= $(OSNAME),$(CENTOS_VERSION) $(UPDATESNAME),$(UPDATES_VERSION)
