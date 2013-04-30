@@ -1,7 +1,7 @@
 ROLL		= os
 COLOR		= white
 OSNAME		= CentOS
-OSVERSION 	= 6.3
+OSVERSION 	= 6.4
 UPDATESNAME	= CentOS-Updates
 
 ROLLDIR		= /export/rocks/rolls

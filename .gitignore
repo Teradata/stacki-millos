@@ -1,0 +1,4 @@
+/build-*-*/
+/src/order-*.mk
+.buildenv
+.rpmmacros

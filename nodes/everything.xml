@@ -33,9 +33,6 @@
 	<package>kernel</package>
 	<package>kernel-devel</package>
 
-	<package arch="i386">kernel-PAE</package>
-	<package arch="i386">kernel-PAE-devel</package>
-
 	<package>gtkhtml2</package>
 	<package>gnome-python2-gtkhtml2</package>
 
