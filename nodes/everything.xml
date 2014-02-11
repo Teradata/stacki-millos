@@ -36,5 +36,10 @@
 	<package>gtkhtml2</package>
 	<package>gnome-python2-gtkhtml2</package>
 
+	<package>rrdtool</package>
+	<package>ruby</package>
+	<package>lzo-devel</package>
+	<package>perl-Time-HiRes</package>
+
 </kickstart> 
 
