@@ -1,8 +1,11 @@
-ROLL		= os
+export ROLL	= os
 COLOR		= white
 OSNAME		= CentOS
 OSVERSION 	= 6.5
 UPDATESNAME	= CentOS-Updates
+
+CODENAME	= stack3
+RELEASE		= stack3
 
 ROLLDIR		= /export/rocks/rolls
 

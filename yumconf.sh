@@ -15,4 +15,4 @@ reposdir=$PWD
 
 [rocks-dist-os]
 name=rocks-dist-os
-baseurl=file://$PWD/build-os-develop/rocks-dist-os/\$basearch"
+baseurl=file://$PWD/build-os-`git rev-parse --abbrev-ref HEAD | tr "/" "_"`/rocks-dist-os/\$basearch"
