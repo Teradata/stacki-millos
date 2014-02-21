@@ -41,5 +41,10 @@
 	<package>lzo-devel</package>
 	<package>perl-Time-HiRes</package>
 
+	<package>postgresql</package>
+	<package>postgresql-libs</package>
+	<package>postgresql-server</package>
+	<package>snappy-devel</package>
+
 </kickstart> 
 
