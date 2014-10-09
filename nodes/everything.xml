@@ -46,5 +46,8 @@
 	<package>postgresql-server</package>
 	<package>snappy-devel</package>
 
+	<package>perl-Digest-HMAC</package>
+	<package>perl-Digest-SHA1</package>
+
 </kickstart> 
 

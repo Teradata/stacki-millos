@@ -4,14 +4,15 @@ OSNAME		= CentOS
 OSVERSION 	= 6.5
 UPDATESNAME	= CentOS-Updates
 
-CODENAME	= stack3
-RELEASE		= stack3
+CODENAME	= stack4
+RELEASE		= stack4
 
 ROLLDIR		= /export/rocks/rolls
 
 CENTOS_VERSION	= 6.5
 UPDATES_VERSION	= 6.5
-CORE_VERSION	= 6.5
+CORE_VERSION	= 6.6
+VERSION		= $(CENTOS_VERSION)
 
 # CENTOS_VERSION	= \
 	$(shell rocks list roll $(OSNAME) output-header=no output-col=version | tr -d ' ')
