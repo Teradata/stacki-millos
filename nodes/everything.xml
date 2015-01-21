@@ -49,5 +49,7 @@
 	<package>perl-Digest-HMAC</package>
 	<package>perl-Digest-SHA1</package>
 
+	<package>grub2</package>
+
 </kickstart> 
 

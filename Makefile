@@ -137,9 +137,6 @@ pretar:: graph.py
 	-mkdir -p graphs/default
 	./graph.py > graphs/default/os.xml
 	./yumconf.sh > yum.conf
-	-mkdir -p $(ROLLDIR)/CentOS/$(CENTOS_VERSION)/redhat/x86_64/RedHat/base
-	cp $(ROLLDIR)/cluster-core/$(CORE_VERSION)/redhat/x86_64/RedHat/base/comps.xml \
-		$(ROLLDIR)/CentOS/$(CENTOS_VERSION)/redhat/x86_64/RedHat/base
 	-rocks add distribution rocks-dist-all
 	-rocks enable roll % dist=rocks-dist-all
 	-rocks add distribution rocks-dist-os
