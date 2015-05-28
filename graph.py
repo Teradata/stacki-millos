@@ -1,4 +1,4 @@
-#!/opt/rocks/bin/python
+#!/opt/stack/bin/python
 #
 # $Id: graph.py,v 1.15 2011/07/23 02:31:15 phil Exp $
 #
@@ -111,41 +111,27 @@
 #
 
 import sys
-import rocks.sql
+import stack.api
 
-class App(rocks.sql.Application):
+results = stack.api.Call('list appliance', [])
 
-	def __init__(self, argv):
-		rocks.sql.Application.__init__(self, argv)
-
-	def run(self):
-		self.connect()
-		self.execute("""select value from appliance_attributes where
-			attr = 'node' """)
+list = []
+for r in results:
+	list.append(r['appliance'])
 		
-		list = []
-		for node in self.fetchall():
-			if node not in list:
-				list.append(node)
-				
-		print '<?xml version="1.0" standalone="no"?>'
-		print ''
-		print '<graph>'
-		print ''
-		print '\t<description>'
-		print '\tCreate a single "everything" node that includes every'
-		print '\tAppliance type the database knows about.'
-		print '\t</description>'
-		print ''
-		print '\t<edge from="everything">'
-		for node in list:
-			print '\t\t<to>%s</to>' % node
-		print '\t</edge>'
-		print ''
-		print '</graph>'
-
-
-app = App(sys.argv)
-app.parseArgs()
-app.run()
+print '<?xml version="1.0" standalone="no"?>'
+print ''
+print '<graph>'
+print ''
+print '\t<description>'
+print '\tCreate a single "everything" node that includes every'
+print '\tAppliance type the database knows about.'
+print '\t</description>'
+print ''
+print '\t<edge from="everything">'
+for node in list:
+	print '\t\t<to>%s</to>' % node
+print '\t</edge>'
+print ''
+print '</graph>'
 

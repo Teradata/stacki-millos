@@ -13,6 +13,6 @@ plugins=0
 metadata_expire=1800
 reposdir=$PWD
 
-[rocks-dist-os]
-name=rocks-dist-os
-baseurl=file://$PWD/build-os-`git rev-parse --abbrev-ref HEAD | tr "/" "_"`/rocks-dist-os/\$basearch"
+[default-os]
+name=default-os
+baseurl=file://$PWD/build-os-`git rev-parse --abbrev-ref HEAD | tr "/" "_"`/default-os/\$basearch"

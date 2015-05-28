@@ -1,24 +1,24 @@
 export ROLL	= os
 COLOR		= white
 OSNAME		= CentOS
-OSVERSION 	= 7
+OSVERSION 	= 6
 UPDATESNAME	= CentOS-Updates
 
-CODENAME	= stack5
-RELEASE		= stack5
+CODENAME	= stacki
+RELEASE		= stacki
 
-ROLLDIR		= /export/rocks/rolls
+ROLLDIR		= /export/stack/rolls
 
-CENTOS_VERSION	= 7
-UPDATES_VERSION	= 7
-CORE_VERSION	= 7.0
-VERSION		= $(CENTOS_VERSION)
+CENTOS_VERSION	= 6
+UPDATES_VERSION	= 6
+CORE_VERSION	= 6.6
+VERSION		= 6.6
 
 # CENTOS_VERSION	= \
-	$(shell rocks list roll $(OSNAME) output-header=no output-col=version | tr -d ' ')
+	$(shell stack list roll $(OSNAME) output-header=no output-col=version | tr -d ' ')
 # UPDATES_VERSION	= \
-	$(shell rocks list roll $(UPDATESNAME) output-header=no output-col=version | tr -d ' ')
+	$(shell stack list roll $(UPDATESNAME) output-header=no output-col=version | tr -d ' ')
 # CORE_VERSION	= \
-	$(shell rocks list roll cluster-core output-header=no output-col=version | tr -d ' ')
+	$(shell stack list roll cluster-core output-header=no output-col=version | tr -d ' ')
 
 ROLLS		= $(OSNAME),$(CENTOS_VERSION) $(UPDATESNAME),$(UPDATES_VERSION)

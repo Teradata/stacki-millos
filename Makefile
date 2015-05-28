@@ -137,18 +137,18 @@ pretar:: graph.py
 	-mkdir -p graphs/default
 	./graph.py > graphs/default/os.xml
 	./yumconf.sh > yum.conf
-	-rocks add distribution rocks-dist-all
-	-rocks enable roll % dist=rocks-dist-all
-	-rocks add distribution rocks-dist-os
-	-rocks enable roll $(OSNAME) version=$(OSVERSION) dist=rocks-dist-os
-	-rocks enable roll $(UPDATESNAME) version=$(UPDATES_VERSION) \
-		dist=rocks-dist-os
+	-stack add distribution default-all
+	-stack enable roll % dist=default-all
+	-stack add distribution default-os
+	-stack enable roll $(OSNAME) version=$(OSVERSION) dist=default-os
+	-stack enable roll $(UPDATESNAME) version=$(UPDATES_VERSION) \
+		dist=default-os
 	
 cleanosdists:
-	-rocks disable roll % dist=rocks-dist-all
-	-rocks disable roll % dist=rocks-dist-os
-	-rocks remove distribution rocks-dist-all
-	-rocks remove distribution rocks-dist-os
+	-stack disable roll % dist=default-all
+	-stack disable roll % dist=default-os
+	-stack remove distribution default-all
+	-stack remove distribution default-os
 
 clean::
 	rm -f graphs/default/os.xml yum.conf yum.log
