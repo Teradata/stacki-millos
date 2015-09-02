@@ -138,15 +138,16 @@ pretar:: graph.py
 	./graph.py > graphs/default/os.xml
 	./yumconf.sh > yum.conf
 	-stack add distribution default-all
-	-stack enable roll % dist=default-all
+	-stack enable pallet % distribution=default-all
 	-stack add distribution default-os
-	-stack enable roll $(OSNAME) version=$(OSVERSION) dist=default-os
-	-stack enable roll $(UPDATESNAME) version=$(UPDATES_VERSION) \
-		dist=default-os
+	-stack enable pallet $(OSNAME) version=$(OSVERSION) \
+		distribution=default-os
+	-stack enable pallet $(UPDATESNAME) version=$(UPDATES_VERSION) \
+		distribution=default-os
 	
 cleanosdists:
-	-stack disable roll % dist=default-all
-	-stack disable roll % dist=default-os
+	-stack disable pallet % distribution=default-all
+	-stack disable pallet % distribution=default-os
 	-stack remove distribution default-all
 	-stack remove distribution default-os
 
