@@ -136,20 +136,20 @@ include version.mk
 pretar:: graph.py
 	-mkdir -p graphs/default
 	./graph.py > graphs/default/os.xml
-	./yumconf.sh > yum.conf
-	-stack add distribution default-all
-	-stack enable pallet % distribution=default-all
-	-stack add distribution default-os
+	# ./yumconf.sh > yum.conf
+	-stack add box default-all
+	-stack enable pallet % box=default-all
+	-stack add box default-os
 	-stack enable pallet $(OSNAME) version=$(OSVERSION) \
-		distribution=default-os
-	-stack enable pallet $(UPDATESNAME) version=$(UPDATES_VERSION) \
-		distribution=default-os
+		box=default-os
+	# -stack enable pallet $(UPDATESNAME) version=$(UPDATES_VERSION) \
+		# box=default-os
 	
 cleanosdists:
-	-stack disable pallet % distribution=default-all
-	-stack disable pallet % distribution=default-os
-	-stack remove distribution default-all
-	-stack remove distribution default-os
+	-stack disable pallet % box=default-all
+	-stack disable pallet % box=default-os
+	-stack remove box default-all
+	-stack remove box default-os
 
 clean::
 	rm -f graphs/default/os.xml yum.conf yum.log
