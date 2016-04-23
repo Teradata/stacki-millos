@@ -133,17 +133,19 @@ ROLLROOT = .
 include version.mk
 -include $(ROLLSBUILD)/etc/CCRolls.mk
 
+roll: pretar
+
 pretar:: graph.py
-	-mkdir -p graphs/default
-	./graph.py > graphs/default/os.xml
-	# ./yumconf.sh > yum.conf
+	-mkdir -p graph
+	./graph.py > graph/os.xml
+	./yumconf.sh > yum.conf
 	-stack add box default-all
 	-stack enable pallet % box=default-all
 	-stack add box default-os
 	-stack enable pallet $(OSNAME) version=$(OSVERSION) \
 		box=default-os
-	# -stack enable pallet $(UPDATESNAME) version=$(UPDATES_VERSION) \
-		# box=default-os
+	#-stack enable pallet $(UPDATESNAME) version=$(UPDATES_VERSION) \
+	#	box=default-os
 	
 cleanosdists:
 	-stack disable pallet % box=default-all
@@ -151,8 +153,8 @@ cleanosdists:
 	-stack remove box default-all
 	-stack remove box default-os
 
-clean::
-	rm -f graphs/default/os.xml yum.conf yum.log
+clean:: cleanosdists
+	rm -rf graph/ yum.conf yum.log
 	rm -f comps.xml comps.xml.orig
 	rm -f _arch
 	rm -rf cache cachedir
