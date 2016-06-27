@@ -144,8 +144,8 @@ pretar:: graph.py
 	-stack add box default-os
 	-stack enable pallet $(OSNAME) version=$(OSVERSION) \
 		box=default-os
-	#-stack enable pallet $(UPDATESNAME) version=$(UPDATES_VERSION) \
-	#	box=default-os
+	-stack enable pallet $(UPDATESNAME) version=$(UPDATES_VERSION) \
+		box=default-os
 	
 cleanosdists:
 	-stack disable pallet % box=default-all
