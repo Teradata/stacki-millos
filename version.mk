@@ -2,21 +2,21 @@ export ROLL	= os
 COLOR		= white
 OSNAME		= CentOS
 OSVERSION 	= 7
-UPDATESNAME	= Updates
+UPDATESNAME	= CentOS-Updates
 
 ADDCOMPS	= 1
 BOOTABLE	= 0
 ISOSIZE		= 0
 
 CODENAME	= stacki
-RELEASE		= 7.x
+RELEASE		= stacki
 
 ROLLDIR		= /export/stack/rolls
 
 CENTOS_VERSION	= 7
-UPDATES_VERSION	= 7.2.1 
-CORE_VERSION	= 7
-VERSION		= 7
+UPDATES_VERSION	= 7.2
+CORE_VERSION	= 7.2
+VERSION		= 7.2
 
 # CENTOS_VERSION	= \
 	$(shell stack list roll $(OSNAME) output-header=no output-col=version | tr -d ' ')

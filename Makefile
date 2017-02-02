@@ -135,9 +135,7 @@ include version.mk
 
 roll: pretar
 
-pretar:: graph.py
-	-mkdir -p graph
-	./graph.py > graph/os.xml
+pretar::
 	./yumconf.sh > yum.conf
 	-stack add box default-all
 	-stack enable pallet % box=default-all
@@ -154,7 +152,7 @@ cleanosdists:
 	-stack remove box default-os
 
 clean:: cleanosdists
-	rm -rf graph/ yum.conf yum.log
+	rm -f yum.conf yum.log
 	rm -f comps.xml comps.xml.orig
 	rm -f _arch
 	rm -rf cache cachedir
