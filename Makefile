@@ -136,7 +136,6 @@ include version.mk
 roll: pretar
 
 pretar::
-	./yumconf.sh > yum.conf
 	-stack add box default-all
 	-stack enable pallet % box=default-all
 	-stack add box default-os
