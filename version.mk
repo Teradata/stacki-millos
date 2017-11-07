@@ -8,7 +8,7 @@ BOOTABLE	= 0
 ISOSIZE		= 0
 
 CODENAME	= stacki
-RELEASE		= $(shell $(STACKBUILD)/bin/redhat-release)
+RELEASE		= $(shell $(STACKBUILD)/bin/os-release)
 
 include $(RELEASE).mk
 
